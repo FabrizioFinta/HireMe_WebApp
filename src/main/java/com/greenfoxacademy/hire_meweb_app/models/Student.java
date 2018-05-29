@@ -1,17 +1,25 @@
 package com.greenfoxacademy.hire_meweb_app.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="Students")
 public class Student extends User {
+
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    private long id;
     private String summary;
-    private String picture;
-    private boolean hello;
+    private String image;
+    private boolean isSaved;
 
     public Student() {
     }
 
-    public Student(String summary, String picture, boolean hello) {
+    public Student(String summary, String image, boolean isSaved) {
         this.summary = summary;
-        this.picture = picture;
-        this.hello = hello;
+        this.image = image;
+        this.isSaved = isSaved;
     }
 
     public String getSummary() {
@@ -22,19 +30,19 @@ public class Student extends User {
         this.summary = summary;
     }
 
-    public String getPicture() {
-        return picture;
+    public String getImage() {
+        return image;
     }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public boolean isHello() {
-        return hello;
+    public boolean isSaved() {
+        return isSaved;
     }
 
-    public void setHello(boolean hello) {
-        this.hello = hello;
+    public void setSaved(boolean saved) {
+        this.isSaved = saved;
     }
 }
